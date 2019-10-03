@@ -3,6 +3,8 @@ package dbops
 import (
 	"database/sql"
 	_ "database/sql"
+	"github.com/HannahLihui/video_server/video_server/api/defs"
+	"github.com/HannahLihui/video_server/video_server/api/utils"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"time"
@@ -55,23 +57,51 @@ func DeleteUser(loginName string, pwd string) error  {
 	return nil
 
 }
-func AddNewVideo(aid int, name string)(VideoInfo,error){
-	res:=VideoInfo{Id:"", AuthorId:aid,Name:name, Displayctime:""  }
+func AddNewVideo(aid int, name string)(*defs.VideoInfo,error){
     vid, err:=utils.NewUUID()
     if(err!=nil){
-    	return res,err
+    	return nil,err
 	}
     t:=time.Now()
     ctime:=t.Format("Jan 02 2006,15:04:05")
     stmIns, err:=dbConn.Prepare("INSERT INTO video_info(id, author_id,name,display_ctime) values (?,?,?,?)")
     if(err!=nil){
-    	return res,err
+    	return nil,err
 	}
     _,err=stmIns.Exec(vid,aid,name,ctime)
     if(err!=nil){
-    	return res,err
+    	return nil,err
 	}
-    res=VideoInfo{Id:vid, AuthorId:aid,Name:name, Displayctime:ctime  }
+    res:=&defs.VideoInfo{Id:vid, AuthorId:aid,Name:name, Displayctime:ctime  }
     defer stmIns.Close()
     return res,err
+}
+func GetVideoInfo(vid string)(*defs.VideoInfo,error){
+	stmtOut,err:=dbConn.Prepare("SELECT author_id, name, display_ctime from video_info where vid=?")
+	var aid int
+	var dct string
+	var name string
+	err=stmtOut.QueryRow(vid).Scan(&aid,&name,&dct)
+	if err!=nil && err!=sql.ErrNoRows {
+		return nil,err
+	}
+	if err == sql.ErrNoRows {
+		return nil ,err
+	}
+	defer stmtOut.Close()
+	res:=&defs.VideoInfo{Id:vid, Name:name, AuthorId:aid, Displayctime:dct}
+	return res,err
+}
+func DeleteVideo(vid string) error  {
+	stmtDel, err:= dbConn.Prepare("delete from video_info where id=?");
+	if(err!=nil){
+		return err
+	}
+	_,err=stmtDel.Exec(vid)
+	if(err!=nil){
+		return err
+	}
+	defer stmtDel.Close()
+	return nil
+
 }

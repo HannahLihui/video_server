@@ -1,6 +1,9 @@
 package dbops
 
 import (
+	_ "fmt"
+	_ "github.com/HannahLihui/video_server/video_server/api/defs"
+	_ "github.com/HannahLihui/video_server/video_server/api/utils"
 	"testing"
 	_ "testing"
 )
@@ -17,6 +20,8 @@ func TestUserWorkFlow(t *testing.T){
 	t.Run("get", testGetUser)
 	t.Run("delete", testDeleteUser)
 	t.Run("get", testRegetUser)
+	t.Run("addV", testAddVideo)
+
 }
 func testAddUser(t *testing.T)  {
 	err:=AddUserCredential("lihh", "2333")
@@ -24,11 +29,21 @@ func testAddUser(t *testing.T)  {
 		t.Errorf("error of adduser")
 	}
 }
-func testGetUser(t *testing.T)  {
+func testAddVideo(t *testing.T)  {
+	_,err:=AddNewVideo(2333, "2333")
+	if(err!=nil){
+		t.Errorf("error of add video")
+	}
+}
+func testGetVideo(t *testing.T)  {
 	pwd, err:=GetUserCredential("lihh")
 	if(pwd!="2333"|| err!=nil){
 		t.Errorf("get user error")
 	}
+
+}
+func testGetUser(t *testing.T)  {
+
 
 }
 func testDeleteUser(t *testing.T)  {
