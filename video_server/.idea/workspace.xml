@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09d7a6e4-dfd2-4eb9-84cc-d1086b294036" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../awesomeProject/.idea/awesomeProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/dbops/internal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/session/ops.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../awesomeProject/src/github.com/HannahLihui/video_server" beforeDir="false" afterPath="$PROJECT_DIR$/../awesomeProject/src/github.com/HannahLihui/video_server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/dbops/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/dbops/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/dbops/api_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/dbops/api_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/defs/apidef.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/defs/apidef.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/utils/uuid.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/uuid.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +111,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
