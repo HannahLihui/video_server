@@ -12,5 +12,5 @@ type VideoInfo struct {
 }
 type SimpleSession struct {
 	UserName string
-	TTL      string
+	TTL      int64
 }

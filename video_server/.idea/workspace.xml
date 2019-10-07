@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09d7a6e4-dfd2-4eb9-84cc-d1086b294036" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/dbops/internal.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/session/ops.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../awesomeProject/src/github.com/HannahLihui/video_server" beforeDir="false" afterPath="$PROJECT_DIR$/../awesomeProject/src/github.com/HannahLihui/video_server" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/dbops/internal.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/dbops/internal.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/defs/apidef.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/defs/apidef.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/uuid.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/uuid.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/session/ops.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/session/ops.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +29,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
@@ -37,7 +37,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Go" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -118,5 +118,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="session 提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="session 提交" />
   </component>
 </project>

@@ -1,6 +1,9 @@
 package session
 
 import (
+	"github.com/HannahLihui/video_server/video_server/api/dbops"
+	"github.com/HannahLihui/video_server/video_server/api/defs"
+	_ "github.com/HannahLihui/video_server/video_server/api/defs"
 	"github.com/HannahLihui/video_server/video_server/api/utils"
 	"sync"
 	"time"
@@ -35,10 +38,10 @@ func GenerateNewSessionId(un string) string {
 	return id
 }
 func IsSessionExpired(sid string) (string, bool) {
-	ss, ok := sessionMap.Load(id)
+	ss, ok := sessionMap.Load(sid)
 	if ok {
-		st := time.Now().UnixNano() / 1000000
-		if ss(*defs.SimpleSession{}).TTL < ct {
+		ct := time.Now().UnixNano() / 1000000
+		if ss.(*defs.SimpleSession).TTL < ct {
 			deleteExpiredSession(sid)
 			return "", true
 		}

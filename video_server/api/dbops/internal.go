@@ -3,6 +3,7 @@ package dbops
 import (
 	"database/sql"
 	_ "database/sql"
+	"github.com/HannahLihui/video_server/video_server/api/defs"
 	_ "github.com/HannahLihui/video_server/video_server/api/defs"
 	_ "github.com/HannahLihui/video_server/video_server/api/utils"
 	"log"
@@ -54,7 +55,7 @@ func RetrieveAllSessions() (*sync.Map, error) {
 	}
 	rows, err := stmtOut.Query()
 	if err != nil {
-		log.Panicf("%s", err)
+		log.Printf("%s", err)
 		return nil, err
 	}
 	for rows.Next() {
@@ -62,7 +63,7 @@ func RetrieveAllSessions() (*sync.Map, error) {
 		var ttlstr string
 		var login_time string
 		if err := rows.Scan(&id, &ttlstr, &login_time); err != nil {
-			log.Panicf("retriebe sessions error:%s", err)
+			log.Printf("retriebe sessions error:%s", err)
 			break
 		}
 		if ttl, err := strconv.ParseInt(ttlstr, 10, 64); err != nil {
@@ -75,7 +76,7 @@ func RetrieveAllSessions() (*sync.Map, error) {
 func DeletedSession(sid string) error {
 	stmtOut, err := dbConn.Prepare("DELETE FROM sessions WHERE session_id=?")
 	if err != nil {
-		log.Panicf("%s", err)
+		log.Printf("%s", err)
 		return err
 	}
 	if _, err := stmtOut.Query(sid); err != nil {
